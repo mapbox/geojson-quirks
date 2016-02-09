@@ -4,14 +4,14 @@ Tweak your data to interoperate with quirky GeoJSON readers
 
 ## Why
 
-Let's say you've got valid GeoJSON; you know it's valid since you ran it through [`geojson-hint`](https://github.com/mapbox/geojsonhint). But for some reason, another application, library or service doesn't like it. 
+You've got valid GeoJSON; you know it's valid since you ran it through [`geojson-hint`](https://github.com/mapbox/geojsonhint). But for some reason another application, library or service doesn't like it. 
 
 Well it turns out these quirks are pretty common in GeoJSON readers. In fact, they're so common that I'm writing a python library to encapsulate them, making it dead simple to **tweak the GeoJSON structure for the sake of interoperability**.
 
 ## Installation
 
 ```
-pip install -e git+https://github.com/mapbox/geojson-quirks.git
+pip install -e git+https://github.com/mapbox/geojson-quirks.git#egg=geojson-quirks
 ```
 
 ## Usage
@@ -96,6 +96,8 @@ However, it is valid to put other keys in there (see `foo` in the example below)
     "foo": "bar"
 }
 ```
+
+Many GIS applications expect all important data to live in a flat key:value properties object. 
 
 You can gather all "foreign" members into the properties object.
 
