@@ -58,15 +58,15 @@ geojson-quirks --type-first
 
 ### Feature Identifiers
 
-You can add a `Feature.id` using a uuid string
+Features can optionally contain an `id` but some GeoJSON readers require them. You can add a `Feature.id` using a unique identifier string
 
     geojson-quirks --add-uuid
 
-An auto-incrementing integer id
+Or an auto-incrementing integer id.
 
     geojson-quirks --add-id
 
-Pull id from your existing properties
+GeoJSON writers sometime put the effective feature id in the properties object. You can grab an id from your existing properties
 
     geojson-quirks --id-from-property "FID"
 
@@ -74,7 +74,7 @@ By default, all of the above operations won't touch existing ids; if you want to
 
     geojson-quirks --add-uuid --override-id
 
-Or convert ids to strings
+Or convert ids to strings if your reader requires it.
 
     geojson-quirks --string-id
 
